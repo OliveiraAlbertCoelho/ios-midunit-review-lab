@@ -208,25 +208,105 @@ print(sum)
 Input: `["apple", "apple", "banana", "banana", "banana", "cake", "cake"]`
 
 Output: `["apple", "banana", "cake"]`
+```swift
+var someDict = ["apple", "apple", "banana", "banana", "banana", "cake", "cake"]
+var anoter = Set(someDict)
+print(anoter)
+```
 
 2. **Given a String, find the most frequently occurring letter**
 
 Input: `Never trust a computer you can't throw out a window ~ Steve Wozniak`
 
 Output: `t`
+```swift
+var Input = "Never trust a computer you can't throw out a window ~ Steve Wozniak"
+var someDict = [Character:Int]()
+var someLetter = "qwertyuiopasdfghjklzxcvbnm"
+for i in Input where someLetter.contains(i) {
+
+if someDict.keys.contains(i){
+someDict.updateValue(someDict[i]!+1, forKey: i)
+}
+else {
+someDict[i] = 1
+}
+}
+print(someDict)
+var mostFrequent = 0
+var mostFrequenL = ""
+for (k,v) in someDict {
+if v > mostFrequent{
+mostFrequent = v
+mostFrequenL = String(k)
+}
+}
+print(mostFrequenL)
+
+```
 
 3. **Given an array of type [Int], return a copy of the array that contains only elements that appear at least twice**
 
 Input: `[1,1,2,3,3,3,4,5,6,6,7]`
 
 Output: `[1,3,6]`
+```swift
+var Input = [1,1,2,3,3,3,4,5,6,6,7]
+var someDict = [Int:Int]()
+for i in Input{
+if someDict.keys.contains(i){
+someDict.updateValue(someDict[i]!+1, forKey: i)
+}
+else {
+someDict[i] = 1
+}
+}
+print(someDict)
+
+var daArray = [Int]()
+for (k,v) in someDict {
+if v >= 2 {
+daArray.append(k)
+}
+}
+
+print(daArray)
+```
 
 4. **Given a String, find the second most frequently occurring letter in a string**
 
 Input: `Never trust a computer you can't throw out a window ~ Steve Wozniak`
 
 Output `o`
+```swift
+var Input = "Never trust a computer you can't throw out a window ~ Steve Wozniak"
+var someDict = [Character:Int]()
+var someLetter = "qwertyuiopasdfghjklzxcvbnm"
+for i in Input where someLetter.contains(i) {
 
+if someDict.keys.contains(i){
+someDict.updateValue(someDict[i]!+1, forKey: i)
+}
+else {
+someDict[i] = 1
+}
+}
+print(someDict)
+var mostFrequent = 0
+var mostFrequenL = ""
+var secondMost = 0
+var secondMostL = ""
+for (k,v) in someDict {
+if v > mostFrequent{
+secondMost = mostFrequent
+secondMostL = mostFrequenL
+mostFrequent = v
+mostFrequenL = String(k)
+}
+}
+print(secondMostL)
+
+```
 
 ## Closures
 
