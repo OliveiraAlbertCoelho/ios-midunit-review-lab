@@ -8,6 +8,13 @@
 Input: `Hello, there`
 
 Output: `HELLO, THERE`
+```swift
+var beforeString = "Hello, there"
+
+var outputUppercase = beforeString.uppercased()
+
+print(outputUppercase)
+```
 
 2. **Given a String, return a String alternating between uppercase and lowercase letters**
 
@@ -15,14 +22,40 @@ Output: `HELLO, THERE`
 Input: `Hello, there`
 
 Output: `HeLlO, tHeRe`
+```swift
+var beforeString = "Hello, there"
+var afterString = ""
+for (key,value) in beforeString.enumerated(){
+if key % 2 == 0  {
+afterString.append(value.uppercased())
+}else {
+afterString.append(value)
+}
 
+}
+print(afterString)
+
+```
 
 3. **Given a String, return a String with all occurrences of a given letter removed**
 
 Input: `Hello, there`
 
 Output: `Hllo, thr`
+```swift
+var beforeString = "Hello, there"
+var skip = "e"
+var anotherString = ""
+for i in beforeString {
 
+if i.lowercased() != skip.lowercased(){
+anotherString.append(i)
+}
+}
+
+print(anotherString)
+
+```
 
 ## Arrays
 
@@ -32,13 +65,27 @@ Output: `Hllo, thr`
 Input: `[1,5,2,4,1,4]`
 
 Output: `5`
+```swift
+let reduceToFindLargestElement = clusterOfNums.reduce(0, {x, y in
+return x > y ? x : y
+//ternary operator -> condition ? true : false
 
+})
+print(reduceToFindLargestElement)
+```
 2. **Given an array of type [Int], return the smallest element**
 
 Input: `[1,5,2,4,1,4]`
 
 Output: `1`
+```swift
+let reduceToFindSmallestElement = clusterOfNums.reduce(0, {x, y in
+return x < y ? x : y
+//ternary operator -> condition ? true : false
 
+})
+print(reduceToFindSmallestElement)
+```
 3. **Given an array of type [Int], return its sum**
 
 Input: `[1,5,2,4,1,4]`
@@ -315,12 +362,19 @@ print(secondMostL)
 Input: `["Never", "trust", "a", "computer", "you", "can't", "throw", "out", "a", "window"]`
 
 Output: `["Never", "a", "a", "can\'t", "computer", "out", "throw", "trust", "window", "you"]`
+```swift
+var daStrings = ["Never", "trust", "a", "computer", "you", "can't", "throw", "out", "a", "window"]
 
+print(daStrings.sorted())
+```
 2. **Given an array of type [String], return an array that contains the Strings sorted by length**
 
 Input: `["Never", "trust", "a", "computer", "you", "can't", "throw", "out", "a", "window"]`
 
 Output: `["a", "a", "you", "out", "Never", "trust", "can\'t", "throw", "window", "computer"]`
+```swift
+print(thisArray.sorted(by: {$0.count < $1.count}))
+```
 
 3. **Given an array of type [String], return an array containing all Strings at least 4 characters long**
 
